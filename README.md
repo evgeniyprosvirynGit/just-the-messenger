@@ -43,7 +43,7 @@ docker compose down
 ## Run Playwright
 
 ```sh
-docker compose -f compose.yaml -f compose.test.yaml --profile test run --build --rm playwright
+DEV_UID="$(id -u)" DEV_GID="$(id -g)" docker compose -f compose.yaml -f compose.test.yaml --profile test run --build --rm playwright
 ```
 
 Playwright runs Chromium in Docker and writes screenshots, traces, and the HTML report under `web/test-results/`.
