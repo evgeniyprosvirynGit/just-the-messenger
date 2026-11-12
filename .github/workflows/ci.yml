@@ -15,7 +15,7 @@ jobs:
       - name: Create local Compose environment
         run: cp .env.example .env
       - name: Run Playwright browser checks
-        run: docker compose --profile test run --build --rm playwright
+        run: docker compose -f compose.yaml -f compose.test.yaml --profile test run --build --rm playwright
       - name: Upload browser screenshots and report
         if: always()
         uses: actions/upload-artifact@v4
